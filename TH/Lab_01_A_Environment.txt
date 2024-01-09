@@ -1,0 +1,51 @@
+﻿Environment
+
+
+https://www.typescriptlang.org/docs/handbook/intro.html
+
+
+npm init
+npm install -g typescript
+
+
+npm install touch-cli -g
+touch index.ts → console.log("hello");
+
+
+tsc index → index.js
+node index → print hello
+
+
+tsc -w index → if change in index.ts then it will be change in index.js
+
+
+npm install --save-dev nodemon
+(add “watch”:”nodemon index” in scripts package.json)
+
+
+npm run watch
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+________________

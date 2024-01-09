@@ -14,5 +14,7 @@ class Vehicle{
     getChuXe(): string{
         return this.chuXe;
     }
-    
+    setChuXe(chuXe: string): void {
+        this.chuXe = chuXe;
+    }
 }
