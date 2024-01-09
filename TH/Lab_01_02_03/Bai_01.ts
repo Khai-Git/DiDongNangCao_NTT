@@ -2,7 +2,7 @@ class TamGiac {
     private ma: number;
     private mb: number;
     private mc: number;
-
+    
     constructor(ma: number, mb: number, mc: number) {
         if ((ma < 0 && mb < 0 && mc < 0) || (ma + mb <= mc || ma + mc <= mb || mb + mc <= ma)) {
             this.ma = 0;
