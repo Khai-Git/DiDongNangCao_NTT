@@ -1,21 +1,23 @@
 import * as readlineSync from "readline-sync";
 
 class Vehicle {
-  private chuXe: string;
-  private loaiXe: string;
-  private triGiaXe: number;
-  private dungTichXyLanh: number;
+  private chuXe!: string;
+  private loaiXe!: string;
+  private triGiaXe!: number;
+  private dungTichXyLanh!: number;
 
   constructor(
-    chuXe: string,
-    loaiXe: string,
-    triGiaXe: number,
-    dungTichXyLanh: number
+    chuXe?: string,
+    loaiXe?: string,
+    triGiaXe?: number,
+    dungTichXyLanh?: number
   ) {
-    this.chuXe = chuXe;
-    this.loaiXe = loaiXe;
-    this.triGiaXe = triGiaXe;
-    this.dungTichXyLanh = dungTichXyLanh;
+    if (chuXe && loaiXe && triGiaXe && dungTichXyLanh) {
+      this.chuXe = chuXe;
+      this.loaiXe = loaiXe;
+      this.triGiaXe = triGiaXe;
+      this.dungTichXyLanh = dungTichXyLanh;
+    }
   }
 
   getChuXe(): string {
