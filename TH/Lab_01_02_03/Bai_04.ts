@@ -66,13 +66,13 @@ class OrderDetail{
     }
 }
 
-class Oder{
+class Order{
     private orderId!: number;
     private orderDate!: Date;
     private lineItems: OrderDetail[] = [];
     private count!: number;
 
-    constructor(orderId: number, orderDate: Date){
+    constructor(orderId?: number, orderDate?: Date){
         if(orderId && orderDate){
             this.orderId = orderId;
             this.orderDate = orderDate;
@@ -101,10 +101,7 @@ class Oder{
 }
 
 const product1 = new Product("No", "1", 8000);
-product1.toString()
 const detail1 = new OrderDetail(product1, 10);
-detail1.toString()
-const order1 = new Oder(1, new Date(2024,1,16));
+const order1 = new Order(1, new Date(2024,1,16));
+
 order1.toString()
-const myDate = new Date(2024, 1, 16);
-console.log(myDate);
