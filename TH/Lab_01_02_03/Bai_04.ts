@@ -127,6 +127,7 @@ class Order{
 
 const product1 = new Product("Banh Trang", "1", 8000);
 const detail1 = new OrderDetail(product1, 10);
+<<<<<<< HEAD
 
 const order1 = new Order(1, new Date(2024,1,16), [detail1]);
 
@@ -140,3 +141,7 @@ order1.addLineItem(product2, 5);
 order1.addLineItem(product3, 8);
 
 console.log(order1.toString());
+=======
+const order1 = new Order(1, new Date(2024,1,16));
+order1.toString()
+>>>>>>> cc8e51b82c4b1d805c40f8883403a0b025abbb86
