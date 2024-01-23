@@ -103,5 +103,4 @@ class Order{
 const product1 = new Product("No", "1", 8000);
 const detail1 = new OrderDetail(product1, 10);
 const order1 = new Order(1, new Date(2024,1,16));
-
 order1.toString()
