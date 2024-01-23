@@ -29,10 +29,12 @@ class Product {
     setPrice(price: number): void{
         this.price = price;
     }
-
-    toString(): void{
-        console.log(`Description: ${this.getDescription()}, ProductID: ${this.getProductID()}, Price: ${this.getPrice()}`);
+    toString(): string{
+        return `| ${this.getProductID()} | ${this.getDescription()} | ${this.getPrice()}`;
     }
+    // toString(): string{
+    //     return `Description: ${this.getDescription()}, ProductID: ${this.getProductID()}, Price: ${this.getPrice()}`;
+    // }
 }
 
 class OrderDetail{
@@ -58,27 +60,36 @@ class OrderDetail{
     setQuantity(quantity: number):void{
         this.quantity = quantity;
     }
-    calcToalPrice(): number{
+    calcTotalPrice(): number{
         return this.quantity * this.product.getPrice();
     }
-    toString(): void{
-        console.log(`Product: ${this.getProduct()}, Quantity: ${this.getQuantity()}`);
+    toString(): string{
+        return `${this.getProduct().toString()} | ${this.getQuantity()} | ${this.calcTotalPrice()}`;
     }
+    // toString(): string{
+    //     return `Product: ${this.getProduct().toString()}, Quantity: ${this.getQuantity()}`;
+    // }
 }
 
 class Order{
     private orderId!: number;
     private orderDate!: Date;
     private lineItems: OrderDetail[] = [];
-    private count!: number;
+    private count: number = 0;
 
-    constructor(orderId?: number, orderDate?: Date){
-        if(orderId && orderDate){
+    // constructor(orderId?: number, orderDate?: Date){
+    //     if(orderId && orderDate){
+    //         this.orderId = orderId;
+    //         this.orderDate = orderDate;
+    //     }
+    // }
+    constructor(orderId?: number, orderDate?: Date, lineItems?: OrderDetail[]){
+        if(orderId && orderDate && lineItems){
             this.orderId = orderId;
             this.orderDate = orderDate;
+            this.lineItems = lineItems;
         }
     }
-
     getLineItems(): OrderDetail[]{
         return this.lineItems;
     }
@@ -91,17 +102,41 @@ class Order{
     setOrderDate(orderDate: Date): void{
         this.orderDate = orderDate;
     }
+    calTotalCharge(): number{
+        for (const lineItem of this.lineItems) {
+            this.count += lineItem.calcTotalPrice();
+        }
 
+        return this.count;
+    }
     addLineItem(product: Product, count: number): void{
         this.lineItems.push(new OrderDetail(product, count));
     }
-    toString(): void{
-        console.log(`OrderID: ${this.orderId}, OrderDate: ${this.getOrderDate()}, LineItems: ${this.getLineItems()}, Count: ${this.count}`);
+    toString(): string {
+        const formattedDate = this.getOrderDate().toLocaleDateString('en-GB', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+        });
+
+        return `OrderID: ${this.orderId}\nOrderDate: ${formattedDate}\n${this.getLineItems().map(item => item.toString()).join('\n')}\nTong tien thanh toan: ${this.calTotalCharge()}`;
+        // return `OrderID: ${this.orderId}\nOrderDate: ${formattedDate}\n${this.getLineItems().map(item => item.toString()).join('\n')}`;
     }
+    
 }
 
-const product1 = new Product("No", "1", 8000);
+const product1 = new Product("Banh Trang", "1", 8000);
 const detail1 = new OrderDetail(product1, 10);
-const order1 = new Order(1, new Date(2024,1,16));
 
-order1.toString()
+const order1 = new Order(1, new Date(2024,1,16), [detail1]);
+
+const product2 = new Product("Product 2", "2", 5000);
+const detail2 = new OrderDetail(product2, 5);
+
+const product3 = new Product("Product 3", "3", 12000);
+const detail3 = new OrderDetail(product3, 8);
+
+order1.addLineItem(product2, 5);
+order1.addLineItem(product3, 8);
+
+console.log(order1.toString());
