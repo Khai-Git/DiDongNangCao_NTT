@@ -1,7 +1,19 @@
 class ChuyenXeNoiThanh{
-    private doanhThu: number;
-    constructor(maSoChuyen: string, hoTenTaiXe: string, soXe: string,soTuyen: number, soKmDiDuoc: number, doanhThu: number){
-        this.doanhThu = doanhThu;
+    private maSoChuyen!: string;
+    private hoTenTaiXe!: string;
+    private soXe!: string;
+    private soTuyen!: number;
+    private soKmDiDuoc!: number;
+    private doanhThu!: number;
+    constructor(maSoChuyen?: string, hoTenTaiXe?: string, soXe?: string,soTuyen?: number, soKmDiDuoc?: number, doanhThu?: number){
+        if (maSoChuyen && hoTenTaiXe && soXe && soTuyen && soKmDiDuoc && doanhThu) {
+            this.maSoChuyen = maSoChuyen;
+            this.hoTenTaiXe = hoTenTaiXe;
+            this.soXe = soXe;
+            this.soTuyen = soTuyen;
+            this.soKmDiDuoc = soKmDiDuoc;
+            this.doanhThu = doanhThu;
+        }
     }
     getDoanhThu(): number {
         return this.doanhThu;
@@ -12,9 +24,21 @@ class ChuyenXeNoiThanh{
 }
 
 class ChuyenXeNgoaiThanh{
-    private doanhThu: number;
-    constructor(maSoChuyen: string, hoTenTaiXe: string, soXe: string,noiDen: string, soNgayDiDuoc: number, doanhThu: number){
-        this.doanhThu = doanhThu;
+    private maSoChuyen!: string;
+    private hoTenTaiXe!: string;
+    private soXe!: string;
+    private noiDen!: string;
+    private soNgayDiDuoc!: number;
+    private doanhThu!: number;
+    constructor(maSoChuyen?: string, hoTenTaiXe?: string, soXe?: string,noiDen?: string, soNgayDiDuoc?: number, doanhThu?: number){
+        if (maSoChuyen && hoTenTaiXe && soXe && noiDen && soNgayDiDuoc && doanhThu) {
+            this.maSoChuyen = maSoChuyen;
+            this.hoTenTaiXe = hoTenTaiXe;
+            this.soXe = soXe;
+            this.noiDen = noiDen;
+            this.soNgayDiDuoc = soNgayDiDuoc;
+            this.doanhThu = doanhThu;
+        }
     }
     getDoanhThu(): number {
         return this.doanhThu;
