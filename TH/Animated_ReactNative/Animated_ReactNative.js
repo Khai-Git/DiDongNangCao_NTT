@@ -3,6 +3,7 @@ import { Animated, Image, View, StyleSheet, Button, SafeAreaView } from 'react-n
 
 const App = () => {
   const fadeAnim = useRef(new Animated.Value(0)).current;
+  const translateYAnim = useRef(new Animated.Value(0)).current;
 
   const fadeIn = () => {
     Animated.timing(fadeAnim, {
@@ -17,8 +18,6 @@ const App = () => {
       duration: 3000,
     }).start();
   };
-
-  const translateYAnim = useRef(new Animated.Value(0)).current;
 
   const moveUp = () => {
     Animated.timing(translateYAnim, {
@@ -90,8 +89,8 @@ const App = () => {
           },
         ]}>
         <Image
-          style={{ width: 200, height: 200 }} // Set your image dimensions
-          source={{ uri: 'https://random.imagecdn.app/500/150' }} // Replace with your image URL
+          style={{ width: 200, height: 200 }}
+          source={{ uri: 'https://random.imagecdn.app/500/150' }}
         />
       </Animated.View>
       <Animated.View //moving left or right
@@ -102,8 +101,8 @@ const App = () => {
           },
         ]}>
         <Image
-          style={{ width: 200, height: 200 }} // Set your image dimensions
-          source={{ uri: 'https://random.imagecdn.app/500/150' }} // Replace with your image URL
+          style={{ width: 200, height: 200 }}
+          source={{ uri: 'https://random.imagecdn.app/500/150' }}
         />
       </Animated.View>
       <View style={styles.buttonRow}>
