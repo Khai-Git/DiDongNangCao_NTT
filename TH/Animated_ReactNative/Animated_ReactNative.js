@@ -21,7 +21,7 @@ const App = () => {
 
   const moveUp = () => {
     Animated.timing(translateYAnim, {
-      toValue: -200, // Adjust the translation distance as needed
+      toValue: -200,
       duration: 2000,
     }).start();
   };
@@ -29,6 +29,20 @@ const App = () => {
   const moveDown = () => {
     Animated.timing(translateYAnim, {
       toValue: 0,
+      duration: 2000,
+    }).start();
+  };
+
+  const Up = () => {
+    Animated.timing(translateYAnim, {
+      toValue: -200,
+      duration: 2000,
+    }).start();
+  };
+
+  const Down = () => {
+    Animated.timing(translateYAnim, {
+      toValue: 200,
       duration: 2000,
     }).start();
   };
@@ -105,9 +119,15 @@ const App = () => {
           source={{ uri: 'https://random.imagecdn.app/500/150' }}
         />
       </Animated.View>
-      <View style={styles.buttonRow}>
-        <Button title="Move Up / Left" onPress={moveUp} />
-        <Button title="Move Down / Right" onPress={moveDown} />
+      <View style={styles.buttonRow,{flexDirection: 'row',}}>
+        <View style={{flexDirection: 0}}>
+          <Button title="Move Up / Left" onPress={moveUp} />
+          <Button title="Up / Left" onPress={Up} />
+        </View>
+        <View style={{flexDirection: 0}}>
+          <Button title="Begin" onPress={moveDown} />
+          <Button title="Down / Right" onPress={Down} />
+        </View>
       </View>
     </SafeAreaView>
   );
