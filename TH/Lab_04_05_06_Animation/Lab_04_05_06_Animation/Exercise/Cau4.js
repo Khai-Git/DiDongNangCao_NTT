@@ -41,7 +41,7 @@ const App = () => {
         ]}>
         <Image
           style={{ width: 100, height: 100}}
-          source={require("../Lab_04_05_06_Animation/Pic/bongbong.jpg")}
+          source={require("../Pic/bongbong.jpg")}
         />
       </Animated.View>
     </SafeAreaView>

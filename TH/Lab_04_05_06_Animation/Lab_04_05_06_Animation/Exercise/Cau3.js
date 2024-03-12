@@ -89,7 +89,7 @@ const App = () => {
         ]}>
         <Image
           style={{ width: 50, height: 50, position: 'absolute', top: -50, left: 80, }}
-          source={require("../Lab_04_05_06_Animation/Pic/Bell.png")}
+          source={require("../Pic/Bell.png")}
         />
       </Animated.View>
       <Animated.View
@@ -101,7 +101,7 @@ const App = () => {
         ]}>
         <Image
           style={{ width: 150, height: 150 }}
-          source={require("../Lab_04_05_06_Animation/Pic/Sodobatquai.jpg")}
+          source={require("../Pic/Sodobatquai.jpg")}
         />
       </Animated.View>
       <Animated.View

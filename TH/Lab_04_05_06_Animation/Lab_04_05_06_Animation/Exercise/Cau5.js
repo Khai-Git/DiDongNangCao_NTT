@@ -99,7 +99,7 @@ const App = () => {
         ]}>
         <Image
           style={{ width: 100, height: 100 }}
-          source={require("../Lab_04_05_06_Animation/Pic/Shipper.png")}
+          source={require("../Pic/Shipper.png")}
         />
       </Animated.View>
       <Animated.View
@@ -113,38 +113,38 @@ const App = () => {
           Shopee cái gì cũng có ...
         </Animated.Text>
       </Animated.View>
-      <Animated.View style={{ flexDirection: "row" }}>
+      <Animated.View style={{ flexDirection: "row", transform: [{scale: scalePicture}], }}>
         <Animated.View
           style={[
             styles.absoluteImage,
-            {transform: [{scale: scalePicture}],}
+            // {transform: [{scale: scalePicture}],}
           ]}>
           <Image
             style={[{ 
               width: 100,
               height: 100,
             }]}
-            source={require("../Lab_04_05_06_Animation/Pic/MyTom.png")}
+            source={require("../Pic/MyTom.png")}
           />
         </Animated.View>
         <Animated.View
           style={[
             styles.absoluteImage,
-            {transform: [{scale: scalePicture}],}
+            // {transform: [{scale: scalePicture}],}
           ]}>
           <Image
             style={{ width: 100, height: 100 }}
-            source={require("../Lab_04_05_06_Animation/Pic/Coca.png")}
+            source={require("../Pic/Coca.png")}
           />
         </Animated.View>
         <Animated.View
           style={[
             styles.absoluteImage,
-            {transform: [{scale: scalePicture}],}
+            // {transform: [{scale: scalePicture}],}
           ]}>
           <Image
             style={{ width: 100, height: 100 }}
-            source={require("../Lab_04_05_06_Animation/Pic/Snack.png")}
+            source={require("../Pic/Snack.png")}
           />
         </Animated.View>
       </Animated.View>

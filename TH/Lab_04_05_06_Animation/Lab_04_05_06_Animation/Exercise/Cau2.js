@@ -33,7 +33,7 @@ const App = () => {
         ]}>
         <Image
           style={{ width: 100, height: 100 }}
-          source={require("../Lab_04_05_06_Animation/Pic/ball.png")}
+          source={require("../Pic/ball.png")}
         />
       </Animated.View>
       <View style={styles.buttonRow}>

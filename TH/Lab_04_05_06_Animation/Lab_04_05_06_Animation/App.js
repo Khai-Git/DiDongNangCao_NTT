@@ -1,175 +1,32 @@
-import React, { useRef, useEffect } from 'react';
-import { Animated, Image, View, StyleSheet, Button, SafeAreaView } from 'react-native';
+import * as React from 'react';
+import { Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const App = () => {
-  const colorAnim = useRef(new Animated.Value(0)).current;
-  const wiggleAnim = useRef(new Animated.Value(0)).current;
-  const scaleAnim = useRef(new Animated.Value(0)).current;
-  const scalePictureAnim = useRef(new Animated.Value(0)).current;
-  const spinAnim = useRef(new Animated.Value(0)).current;
+import Cau1 from '../Lab_04_05_06_Animation/Exercise/Cau1';
+import Cau2 from '../Lab_04_05_06_Animation/Exercise/Cau2';
+import Cau3 from '../Lab_04_05_06_Animation/Exercise/Cau3';
+import Cau4 from '../Lab_04_05_06_Animation/Exercise/Cau4';
+import Cau5 from '../Lab_04_05_06_Animation/Exercise/Cau5';
 
-  const colorAnimation = () => {
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(colorAnim, { toValue: 1, duration: 1000, useNativeDriver: true }),
-        Animated.timing(colorAnim, { toValue: 0, duration: 1000, useNativeDriver: true }),
-      ]),
-    ).start();
-  };
+const Tab = createBottomTabNavigator();
 
-  const wiggleAnimation = () => {
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(wiggleAnim, { toValue: -150, duration: 1000, useNativeDriver: true }),
-        Animated.timing(wiggleAnim, { toValue: 150, duration: 1000, useNativeDriver: true }),
-        Animated.timing(wiggleAnim, { toValue: 0, duration: 1000, useNativeDriver: true }),
-      ]),
-    ).start();
-  };
-
-  const scaleAnimation = () => {
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(scaleAnim, { toValue: 1, duration: 3000, useNativeDriver: true }),
-        Animated.timing(scaleAnim, { toValue: -1, duration: 3000, useNativeDriver: true }),
-        Animated.timing(scaleAnim, { toValue: 0, duration: 3000, useNativeDriver: true })
-      ]),
-    ).start();
-  };
-
-  const scalePictureAnimation = () => {
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(scalePictureAnim, { toValue: 1, duration: 3000, useNativeDriver: true }),
-        Animated.timing(scalePictureAnim, { toValue: -1, duration: 3000, useNativeDriver: true }),
-        Animated.timing(scalePictureAnim, { toValue: 0, duration: 3000, useNativeDriver: true })
-      ]),
-    ).start();
-  };
-
-  const spinAnimation = () => {
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(spinAnim, { toValue: 1, duration: 3000, useNativeDriver: true }),
-        Animated.timing(spinAnim, { toValue: -1, duration: 3000, useNativeDriver: true }),
-        Animated.timing(spinAnim, { toValue: 1, duration: 3000, useNativeDriver: true })
-      ]),
-    ).start();
-  };
-
-  const scale = scaleAnim.interpolate({
-    inputRange: [0, 1],
-    outputRange: [30, 40],
-  });
-
-  const scalePicture = scalePictureAnim.interpolate({
-    inputRange: [0, 1],
-    outputRange: [1, 2],
-  });
-
-  const textColor = colorAnim.interpolate({
-    inputRange: [0, 1],
-    outputRange: ['blue', 'green'],
-  });
-
-  const spin = spinAnim.interpolate({
-    inputRange: [0, 1],
-    outputRange: ['0deg', '45deg'],
-  });
-
-  useEffect(() => {
-    wiggleAnimation();
-    scaleAnimation();
-    scalePictureAnimation();
-    colorAnimation();
-    spinAnimation();
-  }, []);
-
+function MyTabs() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Animated.View
-        style={[
-          styles.absoluteImage,
-          {
-            transform: [{ 
-              translateX: wiggleAnim,
-            },
-            {rotate: spin}],
-          },
-        ]}>
-        <Image
-          style={{ width: 100, height: 100 }}
-          source={require("../Lab_04_05_06_Animation/Pic/Shipper.png")}
-        />
-      </Animated.View>
-      <Animated.View
-        style={[
-          styles.fadingContainer,
-          {
-            alignItems: 'center',
-          },
-        ]}>
-        <Animated.Text style={[{ color: textColor, fontSize: scale }]}>
-          Shopee cái gì cũng có ...
-        </Animated.Text>
-      </Animated.View>
-      <Animated.View style={{ flexDirection: "row" }}>
-        <Animated.View
-          style={[
-            styles.absoluteImage,
-            {transform: [{scale: scalePicture}],}
-          ]}>
-          <Image
-            style={[{ 
-              width: 100,
-              height: 100,
-            }]}
-            source={require("../Lab_04_05_06_Animation/Pic/MyTom.png")}
-          />
-        </Animated.View>
-        <Animated.View
-          style={[
-            styles.absoluteImage,
-            {transform: [{scale: scalePicture}],}
-          ]}>
-          <Image
-            style={{ width: 100, height: 100 }}
-            source={require("../Lab_04_05_06_Animation/Pic/Coca.png")}
-          />
-        </Animated.View>
-        <Animated.View
-          style={[
-            styles.absoluteImage,
-            {transform: [{scale: scalePicture}],}
-          ]}>
-          <Image
-            style={{ width: 100, height: 100 }}
-            source={require("../Lab_04_05_06_Animation/Pic/Snack.png")}
-          />
-        </Animated.View>
-      </Animated.View>
-    </SafeAreaView>
+    <Tab.Navigator>
+      <Tab.Screen name="Cau1" component={Cau1}></Tab.Screen>
+      <Tab.Screen name="Cau2" component={Cau2}></Tab.Screen>
+      <Tab.Screen name="Cau3" component={Cau3}></Tab.Screen>
+      <Tab.Screen name="Cau4" component={Cau4}></Tab.Screen>
+      <Tab.Screen name="Cau5" component={Cau5}></Tab.Screen>
+    </Tab.Navigator>
   );
-};
+}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  innerContainer: {
-    width: 100,
-    height: 100,
-    textAlign: 'center',
-    justifyContent: 'center',
-    fontSize: 30,
-  },
-  sol: {
-    position: 'absolute',
-    top: 20,
-    right: 20,
-  },
-});
-
-export default App;
+export default function App() {
+  return (
+    <NavigationContainer>
+      <MyTabs/>
+    </NavigationContainer>
+  );
+}
