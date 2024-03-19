@@ -7,13 +7,23 @@ const App = () => {
   const panResponder = useRef(
     PanResponder.create({
       onMoveShouldSetPanResponder: () => true,
-      onPanResponderMove: Animated.event([null, {dx: pan.x, dy: pan.y}]),
-      onPanResponderRelease: () => {
+      onPanResponderMove: (event, gesture) => {
+        Animated.event(
+            [
+                null,
+                {   dx: pan.x, 
+                    dy: pan.y 
+                }
+            ],{ useNativeDriver: false }
+        )(event, gesture);
+      },
+      onPanResponderRelease: (event, gesture) => {
         pan.extractOffset();
+        console.log('Dragged to:', { x: gesture.moveX, y: gesture.moveY });
       },
     }),
   ).current;
-
+  console.log(pan);
   return (
     <View style={styles.container}>
       <Text style={styles.titleText}>Drag this box!</Text>
